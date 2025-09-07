@@ -30,7 +30,7 @@ public:
         return head;
     }
 
-    // reverse in groups of size k
+    
     Node* rik(Node* head, int k) {
         if (!head) return nullptr;
 
@@ -39,14 +39,14 @@ public:
         Node* next = nullptr;
         int count = 0;
 
-        // check if we have k nodes
+        
         Node* temp = head;
         for (int i = 0; i < k; i++) {
             if (!temp) return head; // less than k nodes ? no reversal
             temp = temp->next;
         }
 
-        // reverse k nodes
+        
         while (current && count < k) {
             next = current->next;
             current->next = prev;
@@ -55,12 +55,12 @@ public:
             count++;
         }
 
-        // head is now the last node of this group
+        
         if (next) {
             head->next = rik(next, k);
         }
 
-        return prev; // new head of this block
+        return prev; 
     }
 
     void display(Node* head) {
@@ -99,3 +99,4 @@ int main() {
 
     return 0;
 }
+
